@@ -5,7 +5,7 @@ rm -fr blog-cn && mkdir blog-cn
 
 REGEXP=".*\/\(yinwang.org\/\(blog-cn\/.*\)\/\(.*\)\/\(.*\)\/.*\)\\\">\(.*\)<.*"
 wget yinwang.org -O -|\
-gsed -n "/$REGEXP/p" | gsed "s/$REGEXP/\1|\2-\3-\4|\5/g" |\
+sed -n "/$REGEXP/p" | sed "s/$REGEXP/\1|\2-\3-\4|\5/g" |\
 gawk -F '|' '{ h=""$2" "$3".html"; c="\
 wget "$1" -O \""h"\";\
 echo \"<li><a href=\\\""h"\\\">"$3"</a></li>\">>index.html\
