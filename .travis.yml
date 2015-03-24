@@ -1,6 +1,0 @@
-language: python
-install:
-script:
-  - alias gsed=sed
-  - alias gawk=awk
-  - ./spider.sh
